@@ -1,0 +1,681 @@
+/* ==========================================================================
+   Taana Carpets — Responsive layer
+   Breakpoints: 1280 (small desktop) · 1180 (nav collapses) · 900 (tablet)
+                640 (mobile) · 420 (small mobile)
+   ========================================================================== */
+
+/* ≤ 1280px ---------------------------------------------------------------- */
+@media (max-width: 1280px) {
+  .nav__list {
+    gap: 1.15rem;
+  }
+
+  .nav__link {
+    letter-spacing: 0.13em;
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 3rem;
+  }
+
+  .step:nth-child(3)::after {
+    display: none;
+  }
+
+  .footer-top {
+    grid-template-columns: 1.25fr 0.85fr 0.85fr 1.3fr;
+    gap: 2.5rem;
+  }
+}
+
+/* ≤ 1180px: mobile navigation -------------------------------------------- */
+@media (max-width: 1180px) {
+  :root {
+    --header-h: 72px;
+  }
+
+  .nav__list,
+  .nav .btn {
+    display: none;
+  }
+
+  .nav__toggle {
+    display: block;
+  }
+
+  .site-header.is-scrolled .site-header__inner {
+    height: 64px;
+  }
+
+  .site-header .brand__logo {
+    height: 2.9rem;
+  }
+
+  .site-header.is-scrolled .brand__logo {
+    height: 2.5rem;
+  }
+
+  /* Tablet banner: the crop puts the bright rug closer to the text */
+  .hero.hero--banner::before {
+    background:
+      linear-gradient(90deg, rgba(18, 13, 9, 0.86) 0%, rgba(18, 13, 9, 0.64) 48%, rgba(18, 13, 9, 0.12) 86%),
+      linear-gradient(180deg, rgba(18, 13, 9, 0.6) 0%, rgba(18, 13, 9, 0) 32%);
+  }
+
+  .hero--banner .hero__text {
+    max-width: 22rem;
+  }
+
+  /* Four figures like "5,000+" no longer fit side by side in a half-width column */
+  .stats:not(.stats--3) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filter-bar {
+    top: 64px;
+  }
+
+  .materials {
+    grid-template-columns: 1fr;
+  }
+
+  .materials__tabs {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    border-top: 0;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+  }
+
+  .materials__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .materials__tab {
+    width: auto;
+    flex-shrink: 0;
+    display: inline-flex;
+    gap: 0.6rem;
+    padding: 0.55rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+
+  .materials__tab::after {
+    display: none;
+  }
+
+  .materials__tab-name {
+    font-size: 1.2rem;
+  }
+
+  .materials__tab[aria-selected="true"] {
+    padding-left: 1.1rem;
+    background: var(--charcoal);
+    border-color: var(--charcoal);
+    color: var(--ivory);
+  }
+
+  .materials__tab[aria-selected="true"] .materials__tab-name {
+    color: var(--ivory);
+  }
+
+  .bento {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-auto-rows: clamp(200px, 30vw, 300px);
+  }
+
+  .bento .tile:nth-child(1) {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+
+  .bento .tile:nth-child(2),
+  .bento .tile:nth-child(4) {
+    grid-column: span 3;
+  }
+
+  .bento .tile:nth-child(3) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .bento .tile:nth-child(5) {
+    grid-column: span 4;
+  }
+
+  .bento .tile:nth-child(6) {
+    grid-column: span 6;
+  }
+
+  .craft-media__caption {
+    left: 1rem;
+  }
+
+  /* Single column: plain block flow. In a height-capped grid the photo's row
+     collapsed to 0px and the photo covered the title and intro. */
+  .collection-dialog__grid {
+    display: block;
+    overflow-y: auto;
+  }
+
+  .collection-dialog__media {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  /* Rug photos are mostly portrait, so give a gallery more height */
+  .collection-dialog__media.has-gallery {
+    aspect-ratio: 4 / 3;
+  }
+
+  .collection-dialog__body {
+    overflow: visible;
+  }
+}
+
+/* ≤ 900px: tablet --------------------------------------------------------- */
+@media (max-width: 900px) {
+  .split,
+  .split--wide-media,
+  .split--wide-text {
+    grid-template-columns: 1fr;
+  }
+
+  .split--reverse-mobile > :first-child {
+    order: 2;
+  }
+
+  .section-head--split {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .collection-group__head {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .collection-group__head p {
+    justify-self: start;
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero__meta {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+
+  .about-collage {
+    max-width: 560px;
+  }
+
+  /* Stacked: the photo keeps its own portrait shape */
+  .about-collage__main {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stats--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .value-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 2.5rem;
+  }
+
+  .info-cards,
+  .custom-grid,
+  .compare {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .info-cards > :last-child:nth-child(odd),
+  .custom-grid > :last-child:nth-child(odd),
+  .compare > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  .sector-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sector {
+    min-height: 420px;
+  }
+
+  .collab {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-preview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: clamp(160px, 34vw, 280px);
+  }
+
+  .gallery-preview .media:nth-child(1) {
+    grid-column: span 2;
+  }
+
+  .gallery-preview .media figcaption {
+    opacity: 1;
+    transform: none;
+  }
+
+  .timeline::before,
+  .timeline::after {
+    left: 7px;
+  }
+
+  .timeline__item {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding-left: 2.75rem;
+  }
+
+  .timeline__item::before {
+    left: 7px;
+    top: 3.25rem;
+  }
+
+  .timeline__item:nth-child(even) .timeline__media {
+    order: 0;
+  }
+
+  .image-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .image-strip .media:nth-child(2) {
+    margin-top: 0;
+  }
+
+  .image-strip .media:nth-child(3) {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+  }
+
+  .cta-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-about {
+    grid-column: 1 / -1;
+  }
+
+  .masonry {
+    columns: 2 240px;
+  }
+
+  .masonry__caption {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Touch devices have no hover: keep the quick-view affordance visible */
+  .collection-card__quick {
+    display: none;
+  }
+}
+
+/* ≤ 640px: mobile --------------------------------------------------------- */
+@media (max-width: 640px) {
+  :root {
+    --header-h: 66px;
+  }
+
+  .collection-dialog__media.has-gallery {
+    aspect-ratio: 1 / 1;
+  }
+
+  .collection-dialog__thumbs {
+    gap: 0.375rem;
+  }
+
+  .collection-dialog__thumb {
+    flex-basis: 50px;
+  }
+
+  /* Contact card: slimmer padding and icon column so both phone numbers fit on one line */
+  .contact-card {
+    padding: 2rem 1.25rem;
+  }
+
+  .contact-list li {
+    grid-template-columns: 1.75rem 1fr;
+    gap: 0.6rem;
+  }
+
+  .contact-list a,
+  .contact-list address,
+  .contact-list span {
+    font-size: 0.95rem;
+  }
+
+  body {
+    font-size: 0.97rem;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .process-tile__label {
+    padding: 1.75rem 0.7rem 0.65rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* Banner: taller crop on the weaver's hand, copy at the bottom */
+  .hero.hero--banner {
+    height: auto;
+    min-height: clamp(500px, 78svh, 660px);
+    align-items: flex-end;
+  }
+
+  .hero--banner .hero__media img {
+    object-position: 68% 50%;
+  }
+
+  .hero.hero--banner::before {
+    background: linear-gradient(0deg, rgba(18, 13, 9, 0.92) 0%, rgba(18, 13, 9, 0.62) 42%, rgba(18, 13, 9, 0.25) 72%, rgba(18, 13, 9, 0.55) 100%);
+  }
+
+  .hero--banner .hero__content {
+    padding-block: 2rem 2.75rem;
+  }
+
+  .hero--banner .hero__title {
+    font-size: clamp(2.1rem, 9.5vw, 2.7rem);
+  }
+
+  .hero__eyebrow {
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hero__rule {
+    margin: 1.25rem 0 1.1rem;
+  }
+
+  .hero--banner .hero__text {
+    font-size: 0.92rem;
+  }
+
+  .site-header .brand__logo {
+    height: 2.6rem;
+  }
+
+  .site-header.is-scrolled .brand__logo {
+    height: 2.4rem;
+  }
+
+  .hero {
+    min-height: calc(100svh - var(--header-h) - 2.6rem);
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(0deg, rgba(22, 18, 15, 0.88) 0%, rgba(22, 18, 15, 0.55) 55%, rgba(22, 18, 15, 0.3) 100%);
+  }
+
+  .hero__meta {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .hero__meta strong {
+    font-size: 1.3rem;
+  }
+
+  .hero__meta li {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+  }
+
+  .hero .cluster .btn,
+  .cta-band .cluster .btn {
+    flex: 1 1 100%;
+  }
+
+  .page-hero {
+    min-height: 360px;
+  }
+
+  .page-hero::before {
+    background: linear-gradient(0deg, rgba(22, 18, 15, 0.85) 0%, rgba(22, 18, 15, 0.4) 100%);
+  }
+
+  .collection-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .collection-card__media {
+    aspect-ratio: 5 / 4;
+  }
+
+  .bento {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 220px;
+  }
+
+  .bento .tile:nth-child(n) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .bento .tile:nth-child(2),
+  .bento .tile:nth-child(3) {
+    grid-column: span 1;
+  }
+
+  .bento .tile:nth-child(2) .tile__arrow,
+  .bento .tile:nth-child(3) .tile__arrow {
+    display: none;
+  }
+
+  .materials__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .materials__media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .stats,
+  .stats--3 {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem 1.25rem;
+  }
+
+  .feature-grid,
+  .value-grid,
+  .info-cards,
+  .custom-grid,
+  .compare {
+    grid-template-columns: 1fr;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+
+  .step::after {
+    display: none;
+  }
+
+  .about-collage__badge {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .craft-media__caption {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    max-width: none;
+    margin: -2.5rem 1rem 0;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+
+  .spec-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 1.5rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+
+  .masonry {
+    columns: 1;
+  }
+
+  .lightbox__stage {
+    padding: 0 0.75rem;
+  }
+
+  .lightbox__prev,
+  .lightbox__next {
+    top: auto;
+    bottom: -4.25rem;
+    transform: none;
+  }
+
+  .lightbox__caption {
+    padding-inline: 5rem;
+  }
+
+  .filter-bar .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+
+  .filter-bar .filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+  }
+
+  .filter-count {
+    display: none;
+  }
+
+  .faq__answer {
+    padding-right: 0;
+  }
+
+  .map-placeholder {
+    aspect-ratio: auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .whatsapp-float {
+    bottom: 4.75rem;
+    right: 1rem;
+    width: 46px;
+    height: 46px;
+  }
+
+  .back-to-top {
+    right: 1rem;
+    width: 46px;
+    height: 46px;
+  }
+}
+
+/* ≤ 420px ----------------------------------------------------------------- */
+@media (max-width: 420px) {
+  .hero__meta {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .hero__meta li {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .spec-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Print -------------------------------------------------------------------- */
+@media print {
+  .site-header,
+  .back-to-top,
+  .whatsapp-float,
+  .marquee,
+  .lightbox {
+    display: none !important;
+  }
+
+  .js .reveal,
+  .js .reveal-media img {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .js .reveal-media::after {
+    display: none;
+  }
+}
